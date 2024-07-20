@@ -1,7 +1,8 @@
 #include "library.h"
 
-User	*create_user(char *username, char *password)
+User	*create_user(char *username, char *password, bool flag)
 {
+	int		fd;
 	User	*new_user;
 
 	new_user = (User *)calloc(1, sizeof(User));
@@ -10,6 +11,14 @@ User	*create_user(char *username, char *password)
 	new_user->username = ft_strdup(username);
 	new_user->password = ft_strdup(password);
 	new_user->next = NULL;
+	if (flag)
+	{
+		fd = open("database/user", O_APPEND | O_WRONLY);
+		ft_putstr_fd(username, fd);
+		ft_putchar_fd(',', fd);
+		ft_putendl_fd(password, fd);
+		close(fd);
+	}
 	return (new_user);
 }
 
