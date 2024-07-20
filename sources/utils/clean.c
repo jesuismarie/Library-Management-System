@@ -19,8 +19,8 @@ void	free_books(Library *lib)
 	while (lib->books)
 	{
 		tmp = lib->books->next;
-		free_malloc(lib->books->title);
-		free_malloc(lib->books->author);
+		free(lib->books->title);
+		free(lib->books->author);
 		free(lib->books->isbn);
 		free(lib->books);
 		lib->books = tmp;
