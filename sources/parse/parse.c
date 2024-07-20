@@ -7,7 +7,7 @@ bool	parse_book(Library *lib)
 	char	**words;
 	Book	*book;
 
-	fd = open("database/books", O_RDONLY);
+	fd = open("database/books", O_RDONLY | O_CREAT);
 	if(fd < 0)
 		return (false);
 	while(1)
@@ -37,7 +37,7 @@ bool	parse_user(Library *lib)
 	char	**words;
 	User	*user;
 
-	fd = open("database/users", O_RDONLY);
+	fd = open("database/users", O_RDONLY | O_CREAT);
 	if(fd < 0)
 		return (false);
 	while(1)

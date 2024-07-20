@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 
 	if (argc > 2)
 	{
-		printf("Wrong count of arguments!!");
+		printf("%sWrong count of arguments!!%s\n", RED, RESET);
 		return (1);
 	}
 	if (argv[1] && (!ft_strcmp(argv[1], "-h") || !ft_strcmp(argv[1], "--help")))
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 		clean(lib);
 		return(0);
 	}
+	printf("\t%sWelcome to library :D%s\n", APPLE_GREEN, RESET);
 	while (1)
 	{
 		lib->line = readline(PS);

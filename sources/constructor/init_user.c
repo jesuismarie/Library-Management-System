@@ -13,7 +13,7 @@ User	*create_user(char *username, char *password, bool flag)
 	new_user->next = NULL;
 	if (flag)
 	{
-		fd = open("database/user", O_APPEND | O_WRONLY);
+		fd = open("database/users", O_APPEND | O_CREAT | O_WRONLY);
 		ft_putstr_fd(username, fd);
 		ft_putchar_fd(',', fd);
 		ft_putendl_fd(password, fd);

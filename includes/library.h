@@ -4,6 +4,7 @@
 # include "structures.h"
 # include <unistd.h>
 # include <fcntl.h>
+#include <termios.h>
 # include <readline/history.h>
 # include <readline/readline.h>
 
@@ -15,6 +16,7 @@
 void	enter_to_profile(Library *lib);
 void	manage(Library *lib);
 void	add(Library *lib);
+void	lib_register(Library *lib, bool *flag);
 
 /******************************************************************************/
 /***************************** Library management *****************************/
@@ -43,7 +45,10 @@ char	*join_with_symbol(char *s1, char *s2, char c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr_fd(int n, int fd);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
+void	disable_echo(void);
+void	enable_echo(void);
 
 /******************************************************************************/
 /*********************************** Parse ************************************/
