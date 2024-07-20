@@ -16,6 +16,7 @@
 void	enter_to_profile(Library *lib);
 void	manage(Library *lib);
 void	add(Library *lib);
+void	search(Library *lib);
 void	lib_register(Library *lib, bool *flag);
 
 /******************************************************************************/
