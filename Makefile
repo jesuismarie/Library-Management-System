@@ -4,7 +4,7 @@ BUILD			= build
 
 SRC				= sources
 
-DIRS			= parse constructor utils
+DIRS			= manage constructor utils parse
 
 SRCSDIRS		= $(foreach dir, $(DIRS), $(addprefix $(SRC)/, $(dir))) $(SRC)
 
@@ -44,7 +44,7 @@ all:			$(BUILD) $(NAME)
 
 ${NAME}:		${OBJS}
 	@$(CC) $(FLAGS) $(OBJS) $(INCS) $(LIB) -o ${NAME}
-	@echo "${ORANGE}Library created 🥑${RESET}"
+	@echo "${YELLOW} Library created 🥑${RESET}"
 	@echo "$(ORANGE)--------------------------------------------------------$(RESET)"
 	@echo "$(ORANGE)| Usage               | ./library                      |$(RESET)"
 	@echo "$(ORANGE)--------------------------------------------------------$(RESET)"
