@@ -7,7 +7,7 @@ bool	parse_book(Library *lib)
 	char	**words;
 	Book	*book;
 
-	fd = open("database/data", O_RDONLY);
+	fd = open("database/books", O_RDONLY);
 	if(fd < 0)
 		return (false);
 	while(1)
@@ -17,12 +17,16 @@ bool	parse_book(Library *lib)
 			break ;
 		words = ft_split(line, ',');
 		if (!words && *words)
+		{
+			close(fd);
 			return (false);
-		book = create_book(words[0], words[1], words[2]);
+		}
+		book = create_book(words[0], words[1], words[2], false);
 		add_book(&lib->books, book);
 		free(line);
 		free_malloc(words);
 	}
+	close(fd);
 	return (true);
 }
 
@@ -33,7 +37,7 @@ bool	parse_user(Library *lib)
 	char	**words;
 	User	*user;
 
-	fd = open("database/data", O_RDONLY);
+	fd = open("database/users", O_RDONLY);
 	if(fd < 0)
 		return (false);
 	while(1)
@@ -43,11 +47,15 @@ bool	parse_user(Library *lib)
 			break ;
 		words = ft_split(line, ',');
 		if (!words && *words)
+		{
+			close(fd);
 			return (false);
-		user = create_user(words[0], words[1]);
+		}
+		user = create_user(words[0], words[1], false);
 		add_user(&lib->users, user);
 		free(line);
 		free_malloc(words);
 	}
+	close(fd);
 	return (true);
 }
