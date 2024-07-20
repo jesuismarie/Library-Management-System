@@ -21,8 +21,8 @@ typedef struct user User;
 
 struct book
 {
-	char	**title;
-	char	**author;
+	char	*title;
+	char	*author;
 	char	*isbn;
 	bool	borrow;
 	bool	reserved;
@@ -33,7 +33,8 @@ struct user
 {
 	char	*username;
 	char	*password;
-	Book	*book;
+	Book	*borrow;
+	Book	*reserved;
 	User	*next;
 };
 
