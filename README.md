@@ -4,12 +4,12 @@
 
 ## Features
 
-### Basic Features
 - **Add New Books**: Easily add new books to the library collection.
 - **Remove Books**: Remove books from the library.
 - **Search Books**: Search for books by title, author, or ISBN.
 - **User Management**: Register new users and manage user accounts.
 - **Borrow and Return Books**: Users can borrow and return books.
+- **Reservation System**: Implement a reservation system for books.
 
 ## Compatibility
 
@@ -95,40 +95,55 @@ To get started with Library Management System, follow these steps:
 
 Library Management System provides a command-line interface where you can manage library operations. Here are some examples:
 
+- **Register a New User**:
+
+  ```sh
+  > REGISTER
+  >> Enter username:
+  >> Enter password:
+  >> Re-enter password:
+  ```
+
+- **Login  to Profile**:
+
+  ```sh
+  > LOGIN
+  >> Enter username:
+  >> Enter password:
+  ```
+
 - **Add a New Book**:
 
   ```sh
-  > add_book "The Great Gatsby" "F. Scott Fitzgerald" "1234567890"
+  > ADD
+  >> Enter title:
+  >> Enter author:
+  >> Enter isbn:
   ```
 
 - **Remove a Book**:
 
   ```sh
-  > remove_book "1234567890"
+  > REMOVE "1234567890"
   ```
 
 - **Search for a Book**:
 
   ```sh
-  > search_book "The Great Gatsby"
-  ```
-
-- **Register a New User**:
-
-  ```sh
-  > register_user "John Doe"
+  > SEARCH
+  >> Search:
   ```
 
 - **Borrow a Book**:
 
   ```sh
-  > borrow_book "1234567890" "John Doe"
+  > BORROW "1234567890"
   ```
 
 - **Return a Book**:
 
   ```sh
-  > return_book "1234567890"
+  > RETURN "1234567890"
   ```
 
 ## Project Structure
