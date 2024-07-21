@@ -49,7 +49,7 @@ void	remove_book(Book **books, Book *book)
 
 	if (!(*books))
 	{
-		printf("%sLibrary don't have any books%s\n", ORANGE, RESET);
+		printf("\t%sLibrary don't have any books%s\n", ORANGE, RESET);
 		return ;
 	}
 	tmp = *books;

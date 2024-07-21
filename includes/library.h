@@ -30,7 +30,6 @@ void	add_user(User **users, User *new_user);
 Book	*create_book(char *title, char *author, char *isbn, bool flag);
 void	add_book(Book **books, Book *new_book);
 
-
 /******************************************************************************/
 /*********************************** Utils ************************************/
 /******************************************************************************/
@@ -50,6 +49,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_strtrim(char const *s1, char const *set);
+char	*to_lowercase(char *str);
 void	disable_echo(void);
 void	enable_echo(void);
 bool	check_user(Library *lib, char *username);

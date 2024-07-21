@@ -20,7 +20,6 @@ void	lib_login(Library *lib, bool *flag)
 	} while (!ft_strcmp(username, ""));
 	if (!check_login(lib, username, flag, &user))
 	{
-		printf("%d\n", *flag);
 		free(username);
 		return ;
 	}

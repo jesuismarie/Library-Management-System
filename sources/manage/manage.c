@@ -7,5 +7,5 @@ void	manage(Library *lib)
 	else if (!ft_strcmp(lib->line, "SEARCH"))
 		search(lib);
 	else
-		printf("%sWrong Command ❌%s\n", RED, RESET);
+		printf("\t%sWrong Command ❌%s\n", RED, RESET);
 }
