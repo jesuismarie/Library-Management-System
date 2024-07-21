@@ -18,6 +18,7 @@ void	manage(Library *lib);
 void	add(Library *lib);
 void	search(Library *lib);
 void	lib_register(Library *lib, bool *flag);
+void	lib_login(Library *lib, bool *flag);
 
 /******************************************************************************/
 /***************************** Library management *****************************/
@@ -48,8 +49,12 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
+char	*ft_strtrim(char const *s1, char const *set);
 void	disable_echo(void);
 void	enable_echo(void);
+bool	check_user(Library *lib, char *username);
+bool	check_login(Library *lib, char *str, bool *flag, User **user);
+bool	check_password(User *user, char *password);
 
 /******************************************************************************/
 /*********************************** Parse ************************************/

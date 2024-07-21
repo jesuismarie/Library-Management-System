@@ -41,6 +41,7 @@ struct user
 struct library
 {
 	char	*line;
+	User	*user;
 	Book	*books;
 	User	*users;
 };
