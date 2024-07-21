@@ -18,7 +18,7 @@ void	lib_register(Library *lib, bool *flag)
 			*flag = false;
 			return ;
 		}
-	} while (!ft_strcmp(username, ""));
+	} while (!check_user(lib, username) || !ft_strcmp(username, ""));
 	do
 	{
 		if (pass)

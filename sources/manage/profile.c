@@ -18,13 +18,11 @@ void	enter_to_profile(Library *lib)
 		}
 		if (!ft_strcmp(lib->line, "REGISTER"))
 			lib_register(lib, &flag);
+		else if (!ft_strcmp(lib->line, "LOGIN"))
+			lib_login(lib, &flag);
 		else
 			printf("%sWrong Command: You must enter to profile ❌%s\n", RED, RESET);
 	} while ((!flag) || (ft_strcmp(lib->line, "REGISTER") && ft_strcmp(lib->line, "LOGIN")));
 	free(lib->line);
 }
-		// else if (!ft_strcmp(lib->line, "LOGIN"))
-		// {
-
-		// }
 
