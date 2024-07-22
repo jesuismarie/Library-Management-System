@@ -104,7 +104,15 @@ Library Management System provides a command-line interface where you can manage
   >> Re-enter password:
   ```
 
-- **Login  to Profile**:
+- **Login to Profile**:
+
+  ```sh
+  > LOGIN
+  >> Enter username:
+  >> Enter password:
+  ```
+
+  - **Logout from Profile**:
 
   ```sh
   > LOGIN
