@@ -11,7 +11,7 @@ void	lib_loop(Library *lib)
 	printf("\t%sWelcome to library :D%s\n", APPLE_GREEN, RESET);
 	while (1)
 	{
-		lib->line = readline(PS);
+		lib->line = readline(PS0);
 		if (!lib->line)
 			break ;
 		manage(lib);
@@ -27,9 +27,12 @@ void	manage(Library *lib)
 		search(lib);
 	else if (!ft_strcmp(lib->line, "LOGOUT"))
 		lib_loop(lib);
+	else if (!ft_strcmp(lib->line, "BORROW"))
+		borrow_book(lib);
+	else if (!ft_strcmp(lib->line, "RESERVE"))
+		reserve_book(lib);
 	else
 		printf("\t%sWrong Command ❌%s\n", RED, RESET);
-	// else if (!ft_strcmp(lib->line, "BORROW"))
 	// else if (!ft_strcmp(lib->line, "RETURN"))
-	// else if (!ft_strcmp(lib->line, "RESERVE"))
+	// else if (!ft_strcmp(lib->line, "REMOVE"))
 }

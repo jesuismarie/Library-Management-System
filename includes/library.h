@@ -17,6 +17,8 @@ void	enter_to_profile(Library *lib);
 void	manage(Library *lib);
 void	add(Library *lib);
 void	search(Library *lib);
+void	borrow_book(Library *lib);
+void	reserve_book(Library *lib);
 void	lib_register(Library *lib, bool *flag);
 void	lib_login(Library *lib, bool *flag);
 
@@ -56,6 +58,7 @@ void	enable_echo(void);
 bool	check_user(Library *lib, char *username);
 bool	check_login(Library *lib, char *str, bool *flag, User **user);
 bool	check_password(User *user, char *password);
+User	*find_user(Library *lib, char *str);
 
 /******************************************************************************/
 /*********************************** Parse ************************************/

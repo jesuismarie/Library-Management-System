@@ -53,6 +53,7 @@ void	lib_register(Library *lib, bool *flag)
 	} while (ft_strcmp(pass, tmp));
 	new_user = create_user(username, pass, 1);
 	add_user(&lib->users, new_user);
+	lib->user = find_user(lib, username);
 	free(username);
 	free(pass);
 	free(tmp);

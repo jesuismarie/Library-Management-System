@@ -37,6 +37,7 @@ void	lib_login(Library *lib, bool *flag)
 			return ;
 		}
 	} while (!check_password(user, pass) || !ft_strcmp(pass, ""));
+	lib->user = find_user(lib, username);
 	free(username);
 	free(pass);
 }

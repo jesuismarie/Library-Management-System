@@ -14,7 +14,7 @@ void	search(Library *lib)
 	{
 		if (input)
 			free(input);
-		input = readline("Search: ");
+		input = readline(PS1);
 		if (!input)
 			return ;
 	} while (!ft_strcmp(input, ""));
@@ -25,11 +25,11 @@ void	search(Library *lib)
 		title = to_lowercase(tmp->title);
 		author = to_lowercase(tmp->author);
 		isbn = to_lowercase(tmp->isbn);
-		if (ft_strnstr(title, input, ft_strlen(tmp->title)))
+		if (ft_strnstr(title, lowercase_input, ft_strlen(tmp->title)))
 			printf("%d. %s, %s, %s\n", ++i, tmp->title, tmp->author, tmp->isbn);
-		else if (ft_strnstr(author, input, ft_strlen(tmp->author)))
+		else if (ft_strnstr(author, lowercase_input, ft_strlen(tmp->author)))
 			printf("%d. %s, %s, %s\n", ++i, tmp->title, tmp->author, tmp->isbn);
-		else if (ft_strnstr(isbn, input, ft_strlen(tmp->isbn)))
+		else if (ft_strnstr(isbn, lowercase_input, ft_strlen(tmp->isbn)))
 			printf("%d. %s, %s, %s\n", ++i, tmp->title, tmp->author, tmp->isbn);
 		free(title);
 		free(author);

@@ -58,3 +58,17 @@ bool	check_password(User *user, char *password)
 	printf("\t%sWrong password%s\n", RED, RESET);
 	return (false);
 }
+
+User	*find_user(Library *lib, char *str)
+{
+	User	*tmp;
+
+	tmp = lib->users;
+	while (tmp)
+	{
+		if (!ft_strcmp(tmp->username, str))
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
+}

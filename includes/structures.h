@@ -6,7 +6,10 @@
 # include <stdbool.h>
 
 # define BUFFER_SIZE	42
-# define PS				"Enter a command 🥑$ "
+# define PS				"Enter to Profile $ "
+# define PS0			"Enter a command 🥑$ "
+# define PS1			"Search: "
+# define PS2			"Enter a book title or ISBN: "
 
 # define RESET			"\033[0m"
 # define YELLOW			"\033[38;2;255;239;0m"
@@ -42,6 +45,7 @@ struct library
 {
 	char	*line;
 	User	*user;
+	int		removed;
 	Book	*books;
 	User	*users;
 };
