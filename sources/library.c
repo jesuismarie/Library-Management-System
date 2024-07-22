@@ -23,21 +23,7 @@ int	main(int argc, char **argv)
 		help();
 	if (!parse_book(lib) || !parse_user(lib))
 		return (1);
-	enter_to_profile(lib);
-	if (!lib->line)
-	{
-		clean(lib);
-		return(0);
-	}
-	printf("\t%sWelcome to library :D%s\n", APPLE_GREEN, RESET);
-	while (1)
-	{
-		lib->line = readline(PS);
-		if (!lib->line)
-			break ;
-		manage(lib);
-		free(lib->line);
-	}
+	lib_loop(lib);
 	clean(lib);
 	return (0);
 }

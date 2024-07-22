@@ -25,6 +25,7 @@ void	lib_login(Library *lib, bool *flag);
 /******************************************************************************/
 
 Library	*creat_lib(void);
+void	lib_loop(Library *lib);
 User	*create_user(char *username, char *password, bool flag);
 void	add_user(User **users, User *new_user);
 Book	*create_book(char *title, char *author, char *isbn, bool flag);
