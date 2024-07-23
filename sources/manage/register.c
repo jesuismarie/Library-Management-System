@@ -7,7 +7,6 @@ void	lib_register(Library *lib, bool *flag)
 	char	*tmp = NULL;
 	User	*new_user;
 
-	(void)flag;
 	do
 	{
 		if (username)

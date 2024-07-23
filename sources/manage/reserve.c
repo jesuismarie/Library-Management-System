@@ -36,7 +36,7 @@ void	reserve_book(Library *lib)
 				free(title);
 				free(author);
 				free(isbn);
-				if (tmp->reserved)
+				if (tmp->borrow)
 					printf("\t%sBook is borrowed%s\n", ORANGE, RESET);
 				else
 					printf("\t%sBook is already reserved%s\n", ORANGE, RESET);

@@ -6,7 +6,6 @@ void	lib_login(Library *lib, bool *flag)
 	char	*pass = NULL;
 	User	*user;
 
-	(void)flag;
 	do
 	{
 		if (username)
