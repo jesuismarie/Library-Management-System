@@ -14,8 +14,25 @@ int	free_malloc(char **str)
 
 void	free_books(Library *lib)
 {
+	int		fd;
 	Book	*tmp;
 
+	if (lib->removed)
+	{
+		fd = open("database/books", O_WRONLY | O_CREAT | O_TRUNC);
+		tmp = lib->books;
+		while (tmp)
+		{
+			ft_putstr_fd(tmp->title, fd);
+			ft_putchar_fd(',', fd);
+			ft_putstr_fd(tmp->author, fd);
+			ft_putchar_fd(',', fd);
+			ft_putendl_fd(tmp->isbn, fd);
+			tmp = tmp->next;
+		}
+		close(fd);
+	}
+	tmp = NULL;
 	while (lib->books)
 	{
 		tmp = lib->books->next;
