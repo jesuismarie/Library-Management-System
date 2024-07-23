@@ -45,7 +45,7 @@ void	add_book(Book **books, Book *new_book)
 void	remove_book(Book **books, Book *book)
 {
 	Book	*tmp;
-	Book	*temp;
+	Book	*prev;
 
 	if (!(*books))
 	{
@@ -53,18 +53,22 @@ void	remove_book(Book **books, Book *book)
 		return ;
 	}
 	tmp = *books;
+	prev = NULL;
 	while (tmp)
 	{
 		if (tmp == book)
 		{
-			temp = tmp->next;
+			if (prev)
+				prev->next = tmp->next;
+			else
+				*books = tmp->next;
 			free(tmp->title);
 			free(tmp->author);
 			free(tmp->isbn);
 			free(tmp);
-			tmp = temp;
-			break ;
+			return ;
 		}
+		prev = tmp;
 		tmp = tmp->next;
 	}
 }

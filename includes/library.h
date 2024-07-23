@@ -4,7 +4,7 @@
 # include "structures.h"
 # include <unistd.h>
 # include <fcntl.h>
-#include <termios.h>
+# include <termios.h>
 # include <readline/history.h>
 # include <readline/readline.h>
 
@@ -20,6 +20,7 @@ void	search(Library *lib);
 void	borrow_book(Library *lib);
 void	reserve_book(Library *lib);
 void	return_book(Library *lib);
+void	user_remove_book(Library *lib);
 void	lib_register(Library *lib, bool *flag);
 void	lib_login(Library *lib, bool *flag);
 
@@ -33,6 +34,7 @@ User	*create_user(char *username, char *password, bool flag);
 void	add_user(User **users, User *new_user);
 Book	*create_book(char *title, char *author, char *isbn, bool flag);
 void	add_book(Book **books, Book *new_book);
+void	remove_book(Book **books, Book *book);
 
 /******************************************************************************/
 /*********************************** Utils ************************************/

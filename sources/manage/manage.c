@@ -8,7 +8,7 @@ void	lib_loop(Library *lib)
 		clean(lib);
 		exit(0);
 	}
-	printf("\t%sWelcome to library :D%s\n", APPLE_GREEN, RESET);
+	printf("\n\t%sWelcome to library :D%s\n\n", APPLE_GREEN, RESET);
 	while (1)
 	{
 		lib->line = readline(PS0);
@@ -33,8 +33,8 @@ void	manage(Library *lib)
 		reserve_book(lib);
 	else if (!ft_strcmp(lib->line, "RETURN"))
 		return_book(lib);
+	else if (!ft_strcmp(lib->line, "REMOVE"))
+		user_remove_book(lib);
 	else
 		printf("\t%sWrong Command ❌%s\n", RED, RESET);
-	// else if (!ft_strcmp(lib->line, "REMOVE"))
-	// 	remove_book(lib);
 }
