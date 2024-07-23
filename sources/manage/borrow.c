@@ -32,7 +32,7 @@ void	borrow_book(Library *lib)
 		{
 			if (lib->user->reserved)
 				reserved = to_lowercase(lib->user->reserved->isbn);
-			if (tmp->borrow || (tmp->reserved && ft_strcmp(reserved, title)))
+			if (tmp->borrow || (tmp->reserved && reserved && ft_strcmp(reserved, title)))
 			{
 				free(title);
 				free(isbn);
@@ -42,7 +42,7 @@ void	borrow_book(Library *lib)
 					printf("\t%sBook is reserved%s\n", ORANGE, RESET);
 				break ;
 			}
-			if (!lib->user->borrow && !ft_strcmp(reserved, title))
+			if (!lib->user->borrow && reserved && !ft_strcmp(reserved, title))
 			{
 				free(reserved);
 				tmp->reserved = false;
@@ -63,7 +63,7 @@ void	borrow_book(Library *lib)
 		{
 			if (lib->user->reserved)
 				reserved = to_lowercase(lib->user->reserved->isbn);
-			if (tmp->borrow || (tmp->reserved && ft_strcmp(reserved, isbn)))
+			if (tmp->borrow || (tmp->reserved && reserved && ft_strcmp(reserved, isbn)))
 			{
 				free(title);
 				free(isbn);
@@ -73,7 +73,7 @@ void	borrow_book(Library *lib)
 					printf("\t%sBook is reserved%s\n", ORANGE, RESET);
 				break ;
 			}
-			if (!lib->user->borrow && !ft_strcmp(reserved, isbn))
+			if (!lib->user->borrow && reserved && !ft_strcmp(reserved, isbn))
 			{
 				free(reserved);
 				tmp->reserved = false;
