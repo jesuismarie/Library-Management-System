@@ -19,6 +19,7 @@ void	add(Library *lib);
 void	search(Library *lib);
 void	borrow_book(Library *lib);
 void	reserve_book(Library *lib);
+void	return_book(Library *lib);
 void	lib_register(Library *lib, bool *flag);
 void	lib_login(Library *lib, bool *flag);
 
