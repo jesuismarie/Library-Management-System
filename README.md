@@ -1,6 +1,6 @@
 <h1 align='center'> Library Management System </h1>
 
-<p align='center'>Library Management System is a terminal-based application developed to manage books, users, and loans in a library. This project is designed to enhance your understanding of design patterns and data structures while providing a practical tool for managing library operations. </p>
+<p align='center'>Library Management System is a terminal-based application developed to manage books, users in a library. This project is designed to enhance your understanding of design patterns and data structures while providing a practical tool for managing library operations. </p>
 
 ## Features
 
@@ -163,6 +163,8 @@ The project structure is as follows:
 
 - `sources/`: Contains the source code files.
 - `includes/`: Contains the header files.
+- `database`: Contains users and books databases.
+- `readline-8.2/`: Readline Libaray.
 - `Makefile`: The Makefile for compiling the project.
 
 
