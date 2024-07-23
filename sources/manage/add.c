@@ -40,6 +40,7 @@ void	add(Library *lib)
 	} while (!ft_strcmp(isbn, ""));
 	new_book = create_book(title, author, isbn, 1);
 	add_book(&lib->books, new_book);
+	printf("\t%sDone ✅: Book added successfully%s\n", GREEN, RESET);
 	free(title);
 	free(author);
 	free(isbn);

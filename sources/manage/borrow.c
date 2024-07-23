@@ -6,8 +6,8 @@ void	borrow_book(Library *lib)
 	char	*input = NULL;
 	char	*lowercase_input;
 	char	*title;
-	char	*author;
 	char	*isbn;
+	char	*reserved = NULL;
 
 	if (!lib->books)
 	{
@@ -27,14 +27,14 @@ void	borrow_book(Library *lib)
 	while (tmp)
 	{
 		title = to_lowercase(tmp->title);
-		author = to_lowercase(tmp->author);
 		isbn = to_lowercase(tmp->isbn);
 		if (!ft_strcmp(title, lowercase_input))
 		{
-			if (tmp->borrow || tmp->reserved)
+			if (lib->user->reserved)
+				reserved = to_lowercase(lib->user->reserved->isbn);
+			if (tmp->borrow || (tmp->reserved && ft_strcmp(reserved, title)))
 			{
 				free(title);
-				free(author);
 				free(isbn);
 				if (tmp->borrow)
 					printf("\t%sBook is already borrowed%s\n", ORANGE, RESET);
@@ -42,21 +42,30 @@ void	borrow_book(Library *lib)
 					printf("\t%sBook is reserved%s\n", ORANGE, RESET);
 				break ;
 			}
-			if (!lib->user->borrow)
+			if (!lib->user->borrow && !ft_strcmp(reserved, title))
 			{
-				tmp->borrow = 1;
+				free(reserved);
+				tmp->reserved = false;
+				tmp->borrow = true;
 				lib->user->borrow = tmp;
-				printf("\t%sDone  ✅%s\n", GREEN, RESET);
+				lib->user->reserved = NULL;
+			}
+			else if (!lib->user->borrow)
+			{
+				tmp->borrow = true;
+				lib->user->borrow = tmp;
+				printf("\t%sDone ✅: Book is borrowed%s\n", GREEN, RESET);
 			}
 			else
 				printf("\t%sYou can borrow only one book%s\n", ORANGE, RESET);
 		}
 		else if (!ft_strcmp(isbn, lowercase_input))
 		{
-			if (tmp->borrow || tmp->reserved)
+			if (lib->user->reserved)
+				reserved = to_lowercase(lib->user->reserved->isbn);
+			if (tmp->borrow || (tmp->reserved && ft_strcmp(reserved, isbn)))
 			{
 				free(title);
-				free(author);
 				free(isbn);
 				if (tmp->borrow)
 					printf("\t%sBook is already borrowed%s\n", ORANGE, RESET);
@@ -64,20 +73,29 @@ void	borrow_book(Library *lib)
 					printf("\t%sBook is reserved%s\n", ORANGE, RESET);
 				break ;
 			}
+			if (!lib->user->borrow && !ft_strcmp(reserved, isbn))
+			{
+				free(reserved);
+				tmp->reserved = false;
+				tmp->borrow = true;
+				lib->user->borrow = tmp;
+				lib->user->reserved = NULL;
+			}
 			if (!lib->user->borrow)
 			{
-				tmp->borrow = 1;
+				tmp->borrow = true;
 				lib->user->borrow = tmp;
-				printf("\t%sDone  ✅%s\n", GREEN, RESET);
+				printf("\t%sDone ✅: Book is borrowed%s\n", GREEN, RESET);
 			}
 			else
 				printf("\t%sYou can borrow only one book%s\n", ORANGE, RESET);
 		}
 		free(title);
-		free(author);
 		free(isbn);
 		tmp = tmp->next;
 	}
+	if (!lib->user->borrow)
+		printf("\t%sSorry, We don't have this book%s\n", ORANGE, RESET);
 	free(input);
 	free(lowercase_input);
 }

@@ -37,16 +37,16 @@ void	reserve_book(Library *lib)
 				free(author);
 				free(isbn);
 				if (tmp->reserved)
-					printf("\t%sBook is already borrowed%s\n", ORANGE, RESET);
+					printf("\t%sBook is borrowed%s\n", ORANGE, RESET);
 				else
-					printf("\t%sBook is reserved%s\n", ORANGE, RESET);
+					printf("\t%sBook is already reserved%s\n", ORANGE, RESET);
 				break ;
 			}
 			if (!lib->user->reserved)
 			{
-				tmp->reserved = 1;
+				tmp->reserved = true;
 				lib->user->reserved = tmp;
-				printf("\t%sDone%s\n", GREEN, RESET);
+				printf("\t%sDone ✅: Book is reserved%s\n", GREEN, RESET);
 			}
 			else
 				printf("\t%sYou can reserve only one book%s\n", ORANGE, RESET);
@@ -59,16 +59,16 @@ void	reserve_book(Library *lib)
 				free(author);
 				free(isbn);
 				if (tmp->borrow)
-					printf("\t%sBook is already borrowed%s\n", ORANGE, RESET);
+					printf("\t%sBook is borrowed%s\n", ORANGE, RESET);
 				else
-					printf("\t%sBook is reserved%s\n", ORANGE, RESET);
+					printf("\t%sBook is already reserved%s\n", ORANGE, RESET);
 				break ;
 			}
 			if (!lib->user->reserved)
 			{
-				tmp->reserved = 1;
+				tmp->reserved = true;
 				lib->user->reserved = tmp;
-				printf("\t%sDone%s\n", GREEN, RESET);
+				printf("\t%sDone ✅: Book is reserved%s\n", GREEN, RESET);
 			}
 			else
 				printf("\t%sYou can reserve only one book%s\n", ORANGE, RESET);
@@ -78,6 +78,8 @@ void	reserve_book(Library *lib)
 		free(isbn);
 		tmp = tmp->next;
 	}
+	if (!lib->user->reserved)
+		printf("\t%sSorry, We don't have this book%s\n", ORANGE, RESET);
 	free(input);
 	free(lowercase_input);
 }

@@ -6,7 +6,6 @@ void	return_book(Library *lib)
 	char	*input = NULL;
 	char	*lowercase_input;
 	char	*title;
-	char	*author;
 	char	*isbn;
 	char	*book;
 
@@ -28,36 +27,40 @@ void	return_book(Library *lib)
 	while (tmp)
 	{
 		title = to_lowercase(tmp->title);
-		author = to_lowercase(tmp->author);
 		isbn = to_lowercase(tmp->isbn);
 		if (!ft_strcmp(title, lowercase_input))
 		{
-			book = to_lowercase(lib->user->borrow->title);
-			if (!ft_strcmp(book, title))
+			if (lib->user->borrow)
 			{
-				tmp->borrow = 0;
-				lib->user->borrow = NULL;
-				printf("\t%sDone  ✅%s\n", GREEN, RESET);
+				book = to_lowercase(lib->user->borrow->title);
+				if (!ft_strcmp(book, title))
+				{
+					tmp->borrow = false;
+					lib->user->borrow = NULL;
+					printf("\t%sDone ✅: Book is returned%s\n", GREEN, RESET);
+				}
+				free(book);
 			}
 			else
 				printf("\t%sYou don't borrow this book%s\n", ORANGE, RESET);
-			free(book);
 		}
 		else if (!ft_strcmp(isbn, lowercase_input))
 		{
-			book = to_lowercase(lib->user->borrow->isbn);
-			if (!ft_strcmp(book, isbn))
+			if (lib->user->borrow)
 			{
-				tmp->borrow = 0;
-				lib->user->borrow = NULL;
-				printf("\t%sDone  ✅%s\n", GREEN, RESET);
+				book = to_lowercase(lib->user->borrow->isbn);
+				if (!ft_strcmp(book, isbn))
+				{
+					tmp->borrow = false;
+					lib->user->borrow = NULL;
+					printf("\t%sDone ✅: Book is returned%s\n", GREEN, RESET);
+				}
+				free(book);
 			}
 			else
 				printf("\t%sYou don't borrow this book%s\n", ORANGE, RESET);
-			free(book);
 		}
 		free(title);
-		free(author);
 		free(isbn);
 		tmp = tmp->next;
 	}
