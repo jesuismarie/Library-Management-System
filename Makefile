@@ -61,12 +61,17 @@ configure:
 			./readline_config.sh lms
 
 help:
-	@echo "$(ORANGE)--------------------------------------------------------$(RESET)"
-	@echo "$(ORANGE)| Commands    | REGISTER    - Register new user        |$(RESET)"
-	@echo "$(ORANGE)|             | LOGIN       - Log in to personal page  |$(RESET)"
-	@echo "$(ORANGE)|             | ADD         - Add new book             |$(RESET)"
-	@echo "$(ORANGE)|             | SEARCH      - Search a book            |$(RESET)"
-	@echo "$(ORANGE)--------------------------------------------------------$(RESET)"
+	@echo "$(ORANGE)---------------------------------------------------------$(RESET)"
+	@echo "$(ORANGE)| Commands    | REGISTER   - Register new user          |$(RESET)"
+	@echo "$(ORANGE)|             | LOGIN      - Log in to personal page    |$(RESET)"
+	@echo "$(ORANGE)|             | LOGOUT     - Log out from personal page |$(RESET)"
+	@echo "$(ORANGE)|             | ADD        - Add new book               |$(RESET)"
+	@echo "$(ORANGE)|             | SEARCH     - Search a book              |$(RESET)"
+	@echo "$(ORANGE)|             | BORROW     - Borrow a book              |$(RESET)"
+	@echo "$(ORANGE)|             | RETURN     - Return a book              |$(RESET)"
+	@echo "$(ORANGE)|             | RESERVE    - Reserve a book             |$(RESET)"
+	@echo "$(ORANGE)|             | REMOVE     - Remove a book              |$(RESET)"
+	@echo "$(ORANGE)---------------------------------------------------------$(RESET)"
 
 clean:
 	@rm -rf $(BUILD) > /dev/null
