@@ -42,7 +42,7 @@ define show_progress
 	@PERCENTAGE=$$(($(COMPILED_FILES) * 100 / $(TOTAL_FILES))); \
 	FILLED=$$(echo "$$PERCENTAGE / 5" | bc); \
 	EMPTY=$$(echo "20 - $$FILLED" | bc); \
-	printf "\r$(CLEAR_LINE)$(APPLE_GREEN_BOLD)Compiling Progress$(WHITE_BOLD) (%2d%%) $(RESET)[" $$PERCENTAGE; \
+	printf "\r$(CLEAR_LINE)$(APPLE_GREEN_BOLD)Compiling Progress $(WHITE_BOLD)(%2d%%) $(RESET)[" $$PERCENTAGE; \
 	printf "$(APPLE_GREEN_BOLD)"; \
 	for i in `seq 1 $$FILLED`; do printf "✦"; done; \
 	printf "$(RESET)"; \
