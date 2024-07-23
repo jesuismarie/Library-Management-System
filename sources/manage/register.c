@@ -37,7 +37,7 @@ void	lib_register(Library *lib, bool *flag)
 	{
 		if (tmp)
 		{
-			printf("%sPassword didin't match%s\n", RED, RESET);
+			printf("\t%sPassword didn't match%s\n", RED, RESET);
 			free(tmp);
 		}
 		disable_echo();

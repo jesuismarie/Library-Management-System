@@ -31,8 +31,10 @@ void	manage(Library *lib)
 		borrow_book(lib);
 	else if (!ft_strcmp(lib->line, "RESERVE"))
 		reserve_book(lib);
+	else if (!ft_strcmp(lib->line, "RETURN"))
+		return_book(lib);
 	else
 		printf("\t%sWrong Command ❌%s\n", RED, RESET);
-	// else if (!ft_strcmp(lib->line, "RETURN"))
 	// else if (!ft_strcmp(lib->line, "REMOVE"))
+	// 	remove_book(lib);
 }

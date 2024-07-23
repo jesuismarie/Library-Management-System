@@ -46,15 +46,8 @@ bool	check_login(Library *lib, char *str, bool *flag, User **user)
 
 bool	check_password(User *user, char *password)
 {
-	char	*tmp;
-
-	tmp = ft_strtrim(user->password, "\n");
-	if (!ft_strcmp(tmp, password))
-	{
-		free(tmp);
+	if (!ft_strcmp(user->password, password))
 		return (true);
-	}
-	free(tmp);
 	printf("\t%sWrong password%s\n", RED, RESET);
 	return (false);
 }

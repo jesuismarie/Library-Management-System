@@ -46,7 +46,7 @@ void	borrow_book(Library *lib)
 			{
 				tmp->borrow = 1;
 				lib->user->borrow = tmp;
-				printf("\t%sDone%s\n", GREEN, RESET);
+				printf("\t%sDone  ✅%s\n", GREEN, RESET);
 			}
 			else
 				printf("\t%sYou can borrow only one book%s\n", ORANGE, RESET);
@@ -68,7 +68,7 @@ void	borrow_book(Library *lib)
 			{
 				tmp->borrow = 1;
 				lib->user->borrow = tmp;
-				printf("\t%sDone%s\n", GREEN, RESET);
+				printf("\t%sDone  ✅%s\n", GREEN, RESET);
 			}
 			else
 				printf("\t%sYou can borrow only one book%s\n", ORANGE, RESET);
