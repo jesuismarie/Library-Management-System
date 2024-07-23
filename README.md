@@ -145,13 +145,15 @@ Library Management System provides a command-line interface where you can manage
 - **Borrow a Book**:
 
   ```sh
-  > BORROW "1234567890"
+  > BORROW
+  >> Enter a book title or ISBN:
   ```
 
 - **Return a Book**:
 
   ```sh
-  > RETURN "1234567890"
+  > RETURN
+  >> Enter a book title or ISBN:
   ```
 
 ## Project Structure
