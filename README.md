@@ -24,9 +24,10 @@ Library Management System is compatible with:
 1. Before running Minishell on Linux, ensure that you have the necessary dependencies installed. You may need to install the following packages:
 
    ```bash
-   sudo apt-get update -y
-   sudo apt-get install build-essential -y
-   sudo apt-get install libreadline-dev -y
+   sudo apt update -y
+   sudo apt install build-essential -y
+   sudo apt install libreadline-dev -y
+   sudo apt install bc -y
    ```
 
 2. Clone the repository:
